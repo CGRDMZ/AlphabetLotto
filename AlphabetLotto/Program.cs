@@ -111,7 +111,7 @@ namespace AlphabetLotto
             {
                 Console.WriteLine("\n-------------------------------------");
 
-                Console.WriteLine("bag 1: ");
+                Console.Write("Bag 1: ");
                 for (int i = 0; i < alphabetArray.Length; i++)
                 {
                     if (!isPulled[i])
@@ -119,8 +119,8 @@ namespace AlphabetLotto
                         Console.Write($"{alphabetArray[i]} ");
                     }
                 }
-
-                Console.WriteLine("\nplayer1: ");
+                Console.WriteLine();
+                Console.Write("\nplayer1: ");
                 for (int i = 0; i < player1.Length; i++)
                 {
                     if (!isPulledP1[i])
@@ -128,8 +128,8 @@ namespace AlphabetLotto
                         Console.Write($"{player1[i]} ");
                     }
                 }
-
-                Console.WriteLine("\nplayer2: ");
+                Console.WriteLine();
+                Console.Write("\nplayer2: ");
                 for (int i = 0; i < player2.Length; i++)
                 {
                     if (!isPulledP2[i])
@@ -137,6 +137,7 @@ namespace AlphabetLotto
                         Console.Write($"{player2[i]} ");
                     }
                 }
+                Console.WriteLine();
 
                 cinko = true;
                 for (int i = 0; i < isPulledP1.Length; i++)
@@ -148,7 +149,7 @@ namespace AlphabetLotto
                 }
                 if (cinko && flag)
                 {
-                    Console.WriteLine("\nplayer 1 gets 10 point (birinci çinko)");
+                    Console.WriteLine("\nPlayer 1 gets $10  (birinci çinko)");
                     player1Score += 10;
                     flag = false;
                 }
@@ -163,7 +164,7 @@ namespace AlphabetLotto
                 }
                 if (cinko && flag)
                 {
-                    Console.WriteLine("\nplayer 1 gets 10 point (birinci çinko)");
+                    Console.WriteLine("\nplayer 1 gets $10  (birinci çinko)");
                     player1Score += 10;
                     flag = false;
                 }
@@ -179,7 +180,7 @@ namespace AlphabetLotto
                 }
                 if (cinko && flag)
                 {
-                    Console.WriteLine("\nplayer 2 gets 10 point (birinci çinko)");
+                    Console.WriteLine("\nplayer 2 gets $10 (birinci çinko)");
                     player2Score += 10;
                     flag = false;
                 }
@@ -194,7 +195,7 @@ namespace AlphabetLotto
                 }
                 if (cinko && flag)
                 {
-                    Console.WriteLine("\nplayer 2 gets 10 point (birinci çinko)");
+                    Console.WriteLine("\nplayer 2 gets $10 (birinci çinko)");
                     player2Score += 10;
                     flag = false;
                 }
@@ -211,24 +212,24 @@ namespace AlphabetLotto
 
                 if (player1Count == 0 && player2Count == 0)
                 {
+                    player1Score += 30;
+                    player2Score += 30;
                     sum = player1Score + player2Score;
-                    player1Score = sum / 2;
-                    player2Score = sum / 2;
-                    Console.WriteLine("it is a tie. (the money gained will be shared");
+                    Console.WriteLine("it is a tie. (${0} amount of money will be shared for each player)", sum / 2);
                     break;
                 }
                 else if (player1Count == 0)
                 {
                     player1Score += 30;
-                    Console.WriteLine($"player1 gained: {player1Score}");
-                    Console.WriteLine($"player2 gained: {player2Score}");
+                    Console.WriteLine($"player1 gets: ${player1Score}");
+                    Console.WriteLine($"player2 gets: ${player2Score}");
                     break;
                 }
                 else if (player2Count == 0)
                 {
                     player2Score += 30;
-                    Console.WriteLine($"player1 gained: {player1Score}");
-                    Console.WriteLine($"player2 gained: {player2Score}");
+                    Console.WriteLine($"player1 gets: ${player1Score}");
+                    Console.WriteLine($"player2 gets: ${player2Score}");
                     break;
                 }
 
@@ -249,7 +250,6 @@ namespace AlphabetLotto
                         player2Count--;
                     }
                 }
-                Thread.Sleep(300);
             }
             Console.ReadLine();
         }
