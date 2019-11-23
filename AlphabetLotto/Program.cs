@@ -119,6 +119,16 @@ namespace AlphabetLotto
                         Console.Write($"{alphabetArray[i]} ");
                     }
                 }
+
+                Console.Write("\nBag 2: ");
+                for (int i = 0; i < alphabetArray.Length; i++)
+                {
+                    if (isPulled[i])
+                    {
+                        Console.Write($"{alphabetArray[i]} ");
+                    }
+                }
+
                 Console.WriteLine();
                 Console.Write("\nplayer1: ");
                 for (int i = 0; i < player1.Length; i++)
@@ -210,28 +220,7 @@ namespace AlphabetLotto
                 Console.WriteLine($"\nselected number is: {alphabetArray[randNumber]}");
                 Console.WriteLine("\n-------------------------------------");
 
-                if (player1Count == 0 && player2Count == 0)
-                {
-                    player1Score += 30;
-                    player2Score += 30;
-                    sum = player1Score + player2Score;
-                    Console.WriteLine("it is a tie. (${0} amount of money will be shared for each player)", sum / 2);
-                    break;
-                }
-                else if (player1Count == 0)
-                {
-                    player1Score += 30;
-                    Console.WriteLine($"player1 gets: ${player1Score}");
-                    Console.WriteLine($"player2 gets: ${player2Score}");
-                    break;
-                }
-                else if (player2Count == 0)
-                {
-                    player2Score += 30;
-                    Console.WriteLine($"player1 gets: ${player1Score}");
-                    Console.WriteLine($"player2 gets: ${player2Score}");
-                    break;
-                }
+                
 
                 for (int i = 0; i < player1.Length; i++)
                 {
@@ -249,6 +238,28 @@ namespace AlphabetLotto
                         isPulledP2[i] = true;
                         player2Count--;
                     }
+                }
+                if (player1Count == 0 && player2Count == 0)
+                {
+                    player1Score += 30;
+                    player2Score += 30;
+                    sum = player1Score + player2Score;
+                    Console.WriteLine("it is a tie. (${0} amount of money will be divided equally between each player)", sum);
+                    break;
+                }
+                else if (player1Count == 0)
+                {
+                    player1Score += 30;
+                    Console.WriteLine($"player1 gets: ${player1Score}");
+                    Console.WriteLine($"player2 gets: ${player2Score}");
+                    break;
+                }
+                else if (player2Count == 0)
+                {
+                    player2Score += 30;
+                    Console.WriteLine($"player1 gets: ${player1Score}");
+                    Console.WriteLine($"player2 gets: ${player2Score}");
+                    break;
                 }
             }
             Console.ReadLine();
